@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация и вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Регистрация и вход</h1>
+    <form action="/register" method="post">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="role">Войти как:</label>
+        <select id="role" name="role">
+            <option value="admin">Админ баз данных</option>
+            <option value="librarian">Библиотекарь</option>
+        </select><br><br>
+        <input type="submit" value="Зарегистрироваться">
+        <button type="button" class="login-button">Войти</button>
+    </form>
+</body>
+</html>
