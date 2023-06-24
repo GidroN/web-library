@@ -5,8 +5,9 @@ body {
     text-align: center;
 }
 
-h1 {
+h2 {
     color: #333;
+    margin-bottom: 10px;
 }
 
 form {
@@ -17,6 +18,7 @@ form {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 label {
@@ -35,26 +37,28 @@ select {
     border-radius: 4px;
 }
 
-input[type="submit"],
-button {
+button[type="submit"].register-button{
     background-color: #4CAF50;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 5px;
 }
 
-input[type="submit"]:hover,
-button:hover {
+button[type="submit"].register-button:hover {
     background-color: #45a049;
 }
 
-.login-button {
-    background-color: #2196F3;
+button[type="submit"].login-button {
+    background-color: #007BFF; /* это голубой цвет */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.login-button:hover {
-    background-color: #1976D2;
+button[type="submit"].login-button:hover {
+    background-color: #0056b3; /* это более темный оттенок голубого цвета для эффекта наведения */
 }

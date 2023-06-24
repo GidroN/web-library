@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
+from database import init_app, db
 
 app = Flask(__name__)
+init_app(app)
+
 
 @app.route('/')
 def index():
@@ -28,15 +31,24 @@ def login():
     password = request.form.get('password')
     role = request.form.get('role')
 
+    print(f'Вошел пользователь: {username}')
+    print(f'Пароль: {password}')
+    print(f'Роль: {role}')
+
     # Здесь вы можете добавить логику для обработки входа пользователя
     # Проверяйте соответствие введенного логина, пароля и роли с вашей системой аутентификации
 
-    if username == 'admin' and password == 'admin123' and role == 'admin':
-        return f'Добро пожаловать, администратор {username}!'
-    elif username == 'librarian' and password == 'librarian123' and role == 'librarian':
-        return f'Добро пожаловать, библиотекарь {username}!'
+    if role == 'librarian':
+        return f"Добро пожаловать библиотекарь {username}"
     else:
-        return 'Ошибка: неправильные учетные данные или выбрана неправильная роль'
+        return f"Добро пожаловать админ {username}"
+
+    # if username == 'admin' and password == 'admin123' and role == 'admin':
+    #     return f'Добро пожаловать, администратор {username}!'
+    # elif username == 'librarian' and password == 'librarian123' and role == 'librarian':
+    #     return f'Добро пожаловать, библиотекарь {username}!'
+    # else:
+    #     return 'Ошибка: неправильные учетные данные или выбрана неправильная роль'
 
 
 if __name__ == '__main__':
