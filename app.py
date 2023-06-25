@@ -42,12 +42,9 @@ def register():
     db.session.commit()
 
     if new_user.is_admin:
-        logger.info(f'New admin registered {username}')
+        logger.info(f'New admin registered {username}; Password {password}; Role {role}')
     else:
-        logger.info(f'New user registered {username}')
-
-    logger.info(f'Password {password}')
-    logger.info(f'Role {role}')
+        logger.info(f'New user registered {username}; Password {password}; Role {role}')
 
     return f'Регистрация прошла успешно! Пользователь {username} с ролью {role} зарегистрирован.'
 
@@ -69,9 +66,7 @@ def login():
     else:
         logger.info(f'User login was successfully')
 
-    logger.info(f'User {username}')
-    logger.info(f'Password {password}')
-    logger.info(f'Role {role}')
+    logger.info(f'User {username}; Password {password}; Role {role}')
 
 
     if user.is_admin:
