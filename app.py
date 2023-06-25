@@ -1,25 +1,20 @@
-from flask import Flask, render_template, request
-from database import init_app, db
+from flask import Flask
+from flask import render_template, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
-import logging
-
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('logs.log')
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
-
+from utils import logger
+from database import db, init_app
 
 app = Flask(__name__)
 init_app(app)
 
-
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
+
+@app.route("/registration_page")
+def register_page():
+    return render_template('register.html')
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -48,6 +43,7 @@ def register():
 
     return f'Регистрация прошла успешно! Пользователь {username} с ролью {role} зарегистрирован.'
 
+
 @app.route('/login', methods=['POST'])
 def login():
     logger.info('login method called')
@@ -73,7 +69,3 @@ def login():
         return f"Добро пожаловать админ {username}"
     else:
         return f"Добро пожаловать библиотекарь {username}"
-
-
-if __name__ == '__main__':
-    app.run()
