@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+}
+.navbar {
+  background-color: #f8f9fa;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.navbar a {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #000;
+}
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}

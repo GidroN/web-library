@@ -1,17 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    background-color: #fff; /* Белый фон */
     padding: 20px;
     text-align: center;
 }
 
 h2 {
-    color: #333;
+    color: #111; /* Темнее текст для контраста */
     margin-bottom: 10px;
 }
 
 form {
-    background-color: #fff;
+    background-color: #f9f9f9; /* Еще светлее фон формы */
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -38,7 +38,7 @@ select {
 }
 
 button[type="submit"].register-button{
-    background-color: #4CAF50;
+    background-color: #70AD47; /* Светлее зеленый цвет */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -47,11 +47,11 @@ button[type="submit"].register-button{
 }
 
 button[type="submit"].register-button:hover {
-    background-color: #45a049;
+    background-color: #5b8e3a; /* Чуть темнее зеленый цвет при наведении */
 }
 
 button[type="submit"].login-button {
-    background-color: #007BFF; /* это голубой цвет */
+    background-color: #4f8bd6; /* Светлее голубой цвет */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -60,5 +60,5 @@ button[type="submit"].login-button {
 }
 
 button[type="submit"].login-button:hover {
-    background-color: #0056b3; /* это более темный оттенок голубого цвета для эффекта наведения */
+    background-color: #3a6db2; /* Чуть темнее голубой цвет при наведении */
 }
