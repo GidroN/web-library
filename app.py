@@ -1,20 +1,36 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
-from utils import logger
 from database import db, init_app
+from utils import logger
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 init_app(app)
+
 
 @app.route("/")
 def index():
     return render_template('main.html')
 
+
 @app.route("/registration_page")
 def register_page():
     return render_template('register.html')
+
+
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
+
+
+@app.route('/librarian_dashboard')
+def librarian_dashboard():
+    return render_template('librarian_dashboard.html')
+
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -57,15 +73,17 @@ def login():
         logger.error(f'Incorrect input for username or password')
         return 'Неправильное имя пользователя или пароль.'
 
+
     if user.is_admin:
         logger.info(f'Admin login was successfully')
+        return redirect(url_for('admin_dashboard'))
     else:
         logger.info(f'User login was successfully')
+        return redirect(url_for('librarian_dashboard'))
 
-    logger.info(f'User {username}; Password {password}; Role {role}')
-
-
-    if user.is_admin:
-        return f"Добро пожаловать админ {username}"
-    else:
-        return f"Добро пожаловать библиотекарь {username}"
+    # logger.info(f'User {username}; Password {password}; Role {role}')
+    #
+    # if user.is_admin:
+    #     return f"Добро пожаловать админ {username}"
+    # else:
+    #     return f"Добро пожаловать библиотекарь {username}"
