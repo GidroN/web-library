@@ -6,6 +6,7 @@ from .database import db, init_app
 from .utils import logger
 
 app = Flask(__name__)
+init_app(app)
 
 
 @app.route("/")
